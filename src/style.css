@@ -1,1 +1,46 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-color: green;
+}
+.card {
+  background-color: white;
+  width: 450px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+}
+.numCard {
+  font-size: 6rem;
+}
+img {
+  width: 10%;
+}
+
+.img1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.img2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+span {
+  font-size: 6rem;
+}
+.spade {
+  color: black;
+}
+.club {
+  color: black;
+}
+.heart {
+  color: red;
+}
+.diamond {
+  color: black;
+}
