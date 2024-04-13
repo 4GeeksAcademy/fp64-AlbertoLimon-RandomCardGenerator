@@ -10,6 +10,8 @@ window.onload = function() {
   play();
 };
 
+const suitList = ["spade", "club", "heart", "diamond"];
+
 const getRandomValue = array => {
   const numRandom = Math.floor(Math.random() * array.length);
   return array[numRandom];
@@ -21,46 +23,55 @@ const getCardValue = () => {
 };
 
 const getCardSuit = () => {
-  const listaPalos = ["spade", "club", "heart", "diamond"];
-  return getRandomValue(listaPalos);
+  return getRandomValue(suitList);
 };
 
 function setCard(number, cardSuit) {
   document.querySelector(".numCard").innerHTML = number;
+  const card = document.querySelector(".card");
   switch (cardSuit) {
     case "spade":
-      document.querySelector(".card").classList.add("spade");
-      document.querySelector("#suitUp").innerHTML = "♠";
-      document.querySelector("#suitDown").innerHTML = "♠";
+      resetCardClass(card);
+      card.classList.add("spade");
+      setSuitCard("♠");
       break;
     case "club":
-      document.querySelector(".card").classList.add("club");
-      document.querySelector("#suitUp").innerHTML = "♣";
-      document.querySelector("#suitDown").innerHTML = "♣";
+      resetCardClass(card);
+      card.classList.add("club");
+      setSuitCard("♣");
       break;
     case "heart":
-      document.querySelector(".card").classList.add("heart");
-      document.querySelector("#suitUp").innerHTML = "♥";
-      document.querySelector("#suitDown").innerHTML = "♥";
+      resetCardClass(card);
+      card.classList.add("heart");
+      setSuitCard("♥");
       break;
     case "diamond":
-      document.querySelector(".card").classList.add("diamond");
-      document.querySelector("#suitUp").innerHTML = "♦";
-      document.querySelector("#suitDown").innerHTML = "♦";
+      resetCardClass(card);
+      card.classList.add("diamond");
+      setSuitCard("♦");
       break;
   }
 }
 
+function setSuitCard(suitCard) {
+  document.querySelector("#suitUp").innerHTML = suitCard;
+  document.querySelector("#suitDown").innerHTML = suitCard;
+}
+
+function resetCardClass(card) {
+  suitList.forEach(palo => {
+    if (card.classList.contains(palo)) {
+      card.classList.remove(palo);
+    }
+  });
+}
+
 const play = () => {
-  console.log("play");
   const cardNumber = getCardValue();
   const cardSuit = getCardSuit();
   setCard(cardNumber, cardSuit);
 };
+
 document.querySelector("#btnPlay").addEventListener("click", () => {
   play();
-});
-
-document.querySelector("#btnInterval").addEventListener("click", () => {
-  setInterval(play(), 1000);
 });

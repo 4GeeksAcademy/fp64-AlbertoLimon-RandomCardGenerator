@@ -8,11 +8,12 @@ body {
   width: 450px;
   height: 600px;
   display: flex;
-  justify-content: center;
+
   border-radius: 1rem;
 }
 .numCard {
   font-size: 8rem;
+  color: black;
 }
 span {
   font-size: 6rem;
@@ -27,7 +28,7 @@ span:last-child {
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
-  margin-top: 5.5rem;
+  margin-top: 4rem;
 }
 .spade {
   color: red;
@@ -40,4 +41,8 @@ span:last-child {
 }
 .diamond {
   color: black;
+}
+#btnPlay {
+  padding: 1rem;
+  margin-top: 1rem;
 }
